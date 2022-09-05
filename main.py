@@ -7,7 +7,7 @@ app = Flask(__name__)
 def rootRoute():
     return jsonify({
         "message": 'Sup bitch'
-    })
+})
 
 if __name__ == '__main__':
     app.run(debug=True,port=os.getenv("port", default=5500))
