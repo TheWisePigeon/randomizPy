@@ -1,6 +1,6 @@
-import json
-from flask import Flask, jsonify, request
 import os
+from generator import generator
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -22,6 +22,7 @@ def generateDate():
             "message": "Key required"
         })
     schema = eval(schema)
+    generator(schema=schema, rows=2)
     return jsonify({
         "you sent": data
     })
