@@ -2,7 +2,7 @@ from faker import Faker
 fake = Faker()
 
 def generator(schema, rows):
-    print(fake)
+    print(dir(fake)) 
     generated = []
     for i in range(rows):
         for field in schema:
