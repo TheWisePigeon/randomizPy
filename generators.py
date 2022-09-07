@@ -1,8 +1,6 @@
 from faker import Faker
 fake = Faker()
 
-print(dir(fake))
-
 
 generators = [
     {
@@ -42,5 +40,3 @@ generators = [
         "generator": fake.date
     },
 ]
-
-print(generators) 
