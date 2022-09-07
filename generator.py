@@ -1,8 +1,8 @@
 from faker import Faker
 fake = Faker()
+from generators import generators as gens
 
 def generator(schema, rows):
-    print(dir(fake)) 
     generated = []
     for i in range(rows):
         for field in schema:
@@ -10,3 +10,4 @@ def generator(schema, rows):
             generatedData =  fake.name()
             print(generatedData)
     
+
