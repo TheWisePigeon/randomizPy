@@ -12,4 +12,4 @@ def generator(schema, rows):
                 if generator['alias']==schema[field]:
                     row[f"{field}"] = generator['generator']()
         generated[f"{i}"] = row
-    print(generated)
+    return generated

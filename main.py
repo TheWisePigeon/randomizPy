@@ -22,9 +22,10 @@ def generateDate():
             "message": "Key required"
         })
     schema = eval(schema)
-    generator(schema=schema, rows=5)
+    generated = generator(schema=schema, rows=5)
     return jsonify({
-        "you sent": data
+        "you sent": data,
+        "generated": generated
     })
     
 
