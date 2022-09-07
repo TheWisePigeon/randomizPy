@@ -6,8 +6,8 @@ def generator(schema, rows):
     generated = []
     for i in range(rows):
         for field in schema:
-            print(field)
-            generatedData =  fake.name()
-            print(generatedData)
+            for generator in gens:
+                if generator['alias']==schema[field]:
+                    print(generator['generator']())
     
 
