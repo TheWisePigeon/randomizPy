@@ -9,5 +9,5 @@ def generator(schema, rows):
             for generator in gens:
                 if generator['alias']==schema[field]:
                     print(generator['generator']())
-    
+                    
 
