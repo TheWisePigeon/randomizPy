@@ -1,6 +1,7 @@
 import os
 from generator import generator
 from flask import Flask, jsonify, request
+from generators import generators
 
 app = Flask(__name__)
 
@@ -9,6 +10,15 @@ def rootRoute():
     return jsonify({
         "message": 'Sup bitch'
 })
+
+@app.route('/generators')
+def getGenerators():
+    gens = []
+    for generator in generators:
+        gens.append(generator['alias'])
+    return jsonify({
+        "generators": gens
+    })
 
 @app.route('/generate', methods=['POST'])
 def generateDate():
