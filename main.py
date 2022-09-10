@@ -27,7 +27,7 @@ def getGenerators():
 def generateDate():
     data = request.get_json()
     try:
-        rows = data["rows"]
+        rows = int(data["rows"])
         # format = data["format"]
         schema = data["schema"]
     except:
