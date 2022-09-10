@@ -12,7 +12,7 @@ CORS(app)
 def rootRoute():
     return jsonify({
         "message": 'Sup bitch'
-})
+}), 200
 
 @app.route('/generators')
 def getGenerators():
@@ -21,25 +21,28 @@ def getGenerators():
         gens.append(generator['alias'])
     return jsonify({
         "generators": gens
-    })
+    }), 200
 
 @app.route('/generate', methods=['POST'])
 def generateDate():
     data = request.get_json()
     try:
         rows = data["rows"]
-        format = data["format"]
+        # format = data["format"]
         schema = data["schema"]
     except:
         return jsonify({
             "message": "Key required"
-        })
-    schema = eval(schema)
-    generated = generator(schema=schema, rows=5)
+        }), 400
+    try:
+        generated = generator(schema=schema, rows=rows)
+    except:
+         return jsonify({
+            "message": "Something went wrong"
+         }), 500
     return jsonify({
-        "you sent": data,
         "generated": generated
-    })
+    }), 200
     
 
 if __name__ == '__main__':

@@ -4,7 +4,6 @@ from generators import generators as gens
 
 def generator(schema, rows):
     generated = {}
-    generatedRows=[]
     for i in range(rows):
         row = {}
         for field in schema:
