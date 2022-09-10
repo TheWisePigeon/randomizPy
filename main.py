@@ -1,9 +1,12 @@
 import os
 from generator import generator
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from generators import generators
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route('/')
 def rootRoute():
